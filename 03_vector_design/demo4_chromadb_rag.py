@@ -14,6 +14,8 @@ sys.path.insert(0, folder_path)
 import config
 
 # Start.
+import demo1_chromadb_index
+
 llm_client = OpenAI()
 
 embedding_function = OpenAIEmbeddingFunction(
