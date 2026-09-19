@@ -250,3 +250,12 @@ Fine-tuning: define behavior of the model
 	- what output in what format to return back
 	- any constraints
 	
+Steps for HOLs:
+1. clone the daily repo.
+2. Create python virtual env	-> python -m venv .venv
+3. Actiavte the virtual env		-> .venv\Scripts\Activate.ps   (source .venv/bin/activate)
+4. Create the .env files		-> Create in the root folder
+5. Add the OPENAI_API_KEY to the .env file (save)
+6. Run pip installs
+7. Work on TODOs
+8. Run the program
