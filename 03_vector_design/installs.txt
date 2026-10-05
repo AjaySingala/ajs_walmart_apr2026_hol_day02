@@ -1,6 +1,6 @@
-pip install openai python-dotenv chromadb
-pip install faiss
-pip install pypdf
+python -m pip install openai python-dotenv chromadb
+python -m pip install faiss
+python -m pip install pypdf
 
 # For VM:
-pip install faiss-cpu
+python -m pip install faiss-cpu
