@@ -152,3 +152,67 @@ Run the code file(s).
 
 Day 2:
 ===
+https://github.com/AjaySingala/ajs_walmart_apr2026_hol_day01
+
+Fine tuning:
+---
+You have to retrain the model on specific data.
+Legal firm - have a huge dataset related to legal aspects.
+You want a "chatbot" that answers queries related to legal matters ONLY!
+	- NOT: 
+		- what is the GDP of France?
+		- who won the last FIFA WC?
+		- What is the latest news?
+	- CAN:
+		- What is the regulation regarding non-payment of loans?
+		
+One of top credit rating agencies
+	- AAA, AAA-...
+	- A very niche way of working.
+	- They do not want to share their trade secret.
+	- They fine-tuned an existiung LLM with their own dataset (huge)
+		- LLama3 - Meta (Facebook)
+		- setup on their own environment (cloud)
+		- trained it on their data.
+		- create their own chatbot (like ChatGPT) that employees use daily.
+		- ChatGPT, Gemini, Claude, Copilot are banned for employees.
+		
+Why not create your own LLM from scratch?
+	- not so easy
+	- very expensive (lot of resources, money, people, infra, time)
+	- you need to expertise to build the LLM from scratch
+	
+As part of fine tuning:
+	- cleanse the data
+	- domain expertise
+	- train the LLM on your cleansed data (70%)
+	- test it on an unseen dataset (20%)
+	- validate on a 3rd unseen dataset (10%)
+	- confidence level - answering properly
+
+Fine tuning - defining the behavior of your model
+	- default -> You are a Personal Assistant.
+	- Enterprise will define a specific role (System Prompt):
+		You are an expert Legal Advisor
+		Refer to only your training data when answering questions related to legal matters of the company.
+		Do not look for answers on the internet and do not make any assumptions.
+		
+		Provide the answers in a clear and concise manner.
+		Keep the tone professional.
+		
+	
+https://github.com/AjaySingala/ajs_walmart_apr2026_hol_day02
+
+E.g.:
+HOL\ajs_walmart_apr2026_hol_day01
+HOL\ajs_walmart_apr2026_hol_day02
+
+1. Cloe this repo
+2. Open the folder in VSC
+3. Create your .env file (next to config.py).
+4. Create the Py Virtual env
+5. Activate the virtual env
+6. Configure VSC to use the venv Python interpreter (CTRL+SHIFT+P -> Python: Select Interpreter)
+7. pip install (from specific folders)
+8. Complete TODOs
+9. Run code.
