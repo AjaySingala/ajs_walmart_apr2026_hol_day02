@@ -1,1 +1,1 @@
-python -m python -m pip install openai python-dotenv
+python -m pip install openai python-dotenv
