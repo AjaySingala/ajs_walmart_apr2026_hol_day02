@@ -5,8 +5,48 @@ from pypdf import PdfReader
 from collections import Counter
 
 from common_setup import client, MODEL_NAME, get_embedding
-from demo2_recursive_chunking import recursive_chunk
+#from demo2_recursive_chunking import recursive_chunk
 
+# Recursive chunking based on separators (paragraph → sentence → word)
+
+def recursive_chunk(text, max_chunk_size=100):
+    separators = ["\n\n", "\n", ".", " "]
+    def split_text(text, separators):
+        if len(text) <= max_chunk_size:
+            return [text.strip()]
+        
+        if not separators:
+            return [text[:max_chunk_size]]
+        
+        sep = separators[0]
+        parts = text.split(sep)
+        
+        chunks = []
+        current = ""
+
+        for part in parts:
+            temp = current + part + sep
+            
+            if len(temp) <= max_chunk_size:
+                current = temp
+            else:
+                if current:
+                    chunks.append(current.strip())
+                current = part + sep
+        
+        if current:
+            chunks.append(current.strip())
+        
+        final_chunks = []
+        for chunk in chunks:
+            if len(chunk) > max_chunk_size:
+                final_chunks.extend(split_text(chunk, separators[1:]))
+            else:
+                final_chunks.append(chunk)
+        
+        return final_chunks
+
+    return split_text(text, separators)
 
 class FAISSRAGPipeline:
     """Production-grade RAG with FAISS + multi-doc + reranking + streaming"""
